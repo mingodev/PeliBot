@@ -38,14 +38,8 @@ function checkCooldown(channel) {
   return isReady;
 }
 
-function returnToNest() {
-  // Since we can't keep track of the bot's current channel, we join a given channel and leave it.
-  // We can make the channel private to make sure users don't get to hear alerts when the bot joins and leaves the channel.
-
+function disconnect() {
   _connection.disconnect()
-  /*let channel = bot.channels.get(botVoiceChannelID);
-  channel.join().then(console.log).catch(console.error);
-  channel.leave().then(console.log).catch(console.error);*/
 }
 
 bot.on('message', message => {
@@ -77,7 +71,7 @@ bot.on('message', message => {
   }
 
   if (command === '!stahp' && typeof voiceChannel !== 'undefined') {
-    returnToNest();
+    disconnect();
     return;
   } else if (command === '!sthap' && typeof voiceChannel === 'undefined') {
     let errorMessage = errors['not_in_voice_channel'];
@@ -129,7 +123,7 @@ bot.on('message', message => {
         volume: audioVolume
       });
       dispatcher.on('finish', end => {
-        returnToNest();
+        disconnect();
       });
     })
     .catch(err => console.log(err));

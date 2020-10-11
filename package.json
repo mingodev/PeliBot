@@ -2,17 +2,22 @@
   "name": "peli-bot",
   "version": "1.0.0",
   "description": "Fish enthusiastic bot for Pelican's Discord server",
-  "main": "bot.js",
+  "main": "src/bot.js",
   "author": "Simon Domingue",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
+    "compression": "^1.7.4",
     "discord.js": "^12.3.1",
+    "express": "^4.17.1",
     "ffmpeg": "0.0.4",
     "ffmpeg-binaries": "^4.0.0",
     "ffmpeg-static": "^4.2.7",
+    "nodemon": "^2.0.4",
+    "react": "^16.13.1",
     "winston": "^3.2.1"
   },
   "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +28,14 @@
   "bugs": {
     "url": "https://github.com/MingoDev/PeliBot/issues"
   },
-  "homepage": "https://github.com/MingoDev/PeliBot#readme"
+  "homepage": "https://github.com/MingoDev/PeliBot#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/polyfill": "^7.11.5",
+    "@babel/preset-env": "^7.11.5"
+  }
 }
